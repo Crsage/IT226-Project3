@@ -1,0 +1,14 @@
+Interface: Interface.o CSVParser.o
+	g++ -o Interface Interface.o CSVParser.o
+
+CSVParser.o: CSVParser.cpp CSVParser.h
+	g++ -c CSVParser.cpp 
+
+Interface.o: Interface.cpp
+	g++ -c Interface.cpp
+	
+	
+clean:
+	rm -rf *o Interface
+
+

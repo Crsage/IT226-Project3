@@ -13,19 +13,23 @@
 #include <vector>
 #include <sstream>
 #include <istream>
-using std::cout;
-using std::cin;
-using std::endl;
+//using std::cout;
+//using std::cin;
+//using std::endl;
+using namespace std;
 
-
-
-static std::vector< std::vector< std::string> > parse(std::string &filename)
+CSVParser::CSVParser()
 {
-	std::vector< std::vector< std::string > > retVect;
-	std::vector< std::string > row;
-	std::stringstream sstream;
+
+}
+
+vector< vector<string> > CSVParser::parse(string filename)
+{
+	vector< vector<string> >retVect;
+	vector<string> row;
+	stringstream sstream;
 	bool inside = false;
-	std::ifstream ifs(filename.c_str());
+	ifstream ifs(filename.c_str());
 
 	if(ifs.fail())
 	{
@@ -71,11 +75,11 @@ static std::vector< std::vector< std::string> > parse(std::string &filename)
 
 }
 
-static void print(std::vector < std::vector< std::string> > retVect)
+void CSVParser::print(vector< vector<string> > retVect)
 {
-	for(std::vector< std::vector< std::string > >::size_type i = 0; i<retVect.size(); i++)
+	for(vector< vector<string> >::size_type i = 0; i<retVect.size(); i++)
 	{
-		for(std::vector<std::string>::size_type j = 0; j<retVect[i].size(); j++)
+		for(vector<string>::size_type j = 0; j<retVect[i].size(); j++)
 		{
 			cout <<  retVect[i][j] << " ";
 		}
@@ -83,7 +87,8 @@ static void print(std::vector < std::vector< std::string> > retVect)
 	}
 }
 
-static void userPrompt()
+/*
+void userPrompt()
 {
 	while(true)
 	{
@@ -118,4 +123,6 @@ static void userPrompt()
 		std::vector< std::vector< std::string > > vect = parse(filename);
 		print(vect);
 	}
+	
 }
+*/

@@ -9,11 +9,14 @@
 #define CSVPARSER_H_
 #include <vector>
 #include <string>
+
+using namespace std;
 class CSVParser {
 public:
-	static void userPrompt();
-	static std::vector< std::vector< std::string> > parse(std::string &filename);
-	static void print(std::vector < std::vector< std::string> > retVect);
+	CSVParser();
+	void userPrompt();
+	vector< vector<string> > parse(string);
+	void print(vector <vector<string> >);
 };
 
 
