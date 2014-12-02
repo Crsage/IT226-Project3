@@ -11,6 +11,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <map>
 #include <sstream>
 #include <istream>
 //using std::cout;
@@ -73,6 +74,44 @@ vector< vector<string> > CSVParser::parse(string filename)
 	ifs.close();
 	return retVect;
 
+}
+
+vector<string> CSVParser::getHeaders(vector< vector<string> > vect)
+{
+	return vect.at(0);
+}
+
+vector<vector<string> > CSVParser::removeHeaders(vector<vector<string> > vect)
+{
+	vect.erase(vect.begin());
+	return vect;
+}
+
+map<string,vector<string> > CSVParser::addToRepo(vector<vector<string> > vect,map<string,vector<string> > repo)
+{
+	string id;
+	string header;
+	vector<string> curr;
+	int count = 0;
+	cout << count;
+	for(vector<string>::size_type j = 0; j<vect[0].size(); j++)
+	{
+		header = vect[0][j];
+		cout << header;
+		if(header == "StudentId" || header == "User ID")
+		{
+			break;
+		}
+		else
+			count++;
+	}
+	for(vector< vector<string> >::size_type i = 1; i<vect.size(); i++)
+	{
+		curr = vect.at(i);
+		id = vect[i][count];
+		repo.insert(pair <string,vector<string> > (id, curr));
+	}
+	return repo;
 }
 
 void CSVParser::print(vector< vector<string> > retVect)

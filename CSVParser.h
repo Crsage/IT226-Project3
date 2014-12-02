@@ -8,6 +8,7 @@
 #ifndef CSVPARSER_H_
 #define CSVPARSER_H_
 #include <vector>
+#include <map>
 #include <string>
 
 using namespace std;
@@ -17,6 +18,9 @@ public:
 	void userPrompt();
 	vector< vector<string> > parse(string);
 	void print(vector <vector<string> >);
+	map<string,vector<string> > addToRepo(vector<vector<string> >,map<string,vector<string> >);
+	vector<string> getHeaders(vector< vector<string> >);
+	vector<vector<string> > removeHeaders(vector<vector<string> >);
 };
 
 

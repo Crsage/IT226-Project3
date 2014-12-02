@@ -5,15 +5,15 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../CSVParser.cpp \
-../Project3Main.cpp 
+../Interface.cpp 
 
 OBJS += \
 ./CSVParser.o \
-./Project3Main.o 
+./Interface.o 
 
 CPP_DEPS += \
 ./CSVParser.d \
-./Project3Main.d 
+./Interface.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
