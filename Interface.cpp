@@ -20,6 +20,7 @@ CSVParser a;
 vector< vector<string> > vect;
 vector<string> header;
 map<string,vector<string> > repository;
+map<string,vector<string> > newRepo;
 map<string,vector<string> > headersMap;
 string filename;
 string value;
@@ -75,16 +76,20 @@ while(flag == true)
 			//read file and add to repository
 			vect = a.parse(filename);
 			header = a.getHeaders(vect);
-			headersMap.insert(pair<string,vector<string> > (courseNo,header));
+			//headersMap.insert(pair<string,vector<string> > (courseNo,header));
+			//cout << headersMap.size() <<endl;
 			//vect = a.removeHeaders(vect);
+
 			cout << "Number of Students in Repository: " << repository.size() << endl;
 			cout << "Number of Students to be added to Repository: "
 					<< vect.size()-1 << endl;
-			repository = a.addToRepo(vect,repository);
-			cout << "New Repository Size: " << repository.size() << endl;
+
+			cout << "test\n";
+			newRepo = a.addToRepo(vect,repository);//SegFault at this method
+			cout << "New Repository Size: " << newRepo.size() << endl;
 
 
-			//a.print(vect);
+			a.print(vect);
 			//cout << "Reads the file(if it exists) and adds to our already exisiting repository." << endl;
 			//Print number of students read and how many there were.
 			//cout << "Prints the number of students read from file and also how many students there were." << endl;

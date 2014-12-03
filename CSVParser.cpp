@@ -72,11 +72,12 @@ vector< vector<string> > CSVParser::parse(string filename)
 		}
 	}
 	ifs.close();
+	//cout << "retVect Size : "<<retVect.size()<<endl;
 	return retVect;
 
 }
 
-vector<string> CSVParser::getHeaders(vector< vector<string> > vect)
+vector<string> CSVParser::getHeaders(const vector< vector<string> > &vect)
 {
 	return vect.at(0);
 }
@@ -87,13 +88,14 @@ vector<vector<string> > CSVParser::removeHeaders(vector<vector<string> > vect)
 	return vect;
 }
 
-map<string,vector<string> > CSVParser::addToRepo(vector<vector<string> > vect,map<string,vector<string> > repo)
+map<string,vector<string> > CSVParser::addToRepo(const vector<vector<string> >& vect,map<string,vector<string> >& repo)
 {
+	map<string,vector<string> > map = repo;
 	string id;
 	string header;
 	vector<string> curr;
 	int count = 0;
-	cout << count;
+	cout << "test2";
 	for(vector<string>::size_type j = 0; j<vect[0].size(); j++)
 	{
 		header = vect[0][j];
@@ -109,9 +111,9 @@ map<string,vector<string> > CSVParser::addToRepo(vector<vector<string> > vect,ma
 	{
 		curr = vect.at(i);
 		id = vect[i][count];
-		repo.insert(pair <string,vector<string> > (id, curr));
+		map.insert(pair <string,vector<string> > (id, curr));
 	}
-	return repo;
+	return map;
 }
 
 void CSVParser::print(vector< vector<string> > retVect)

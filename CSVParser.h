@@ -18,8 +18,8 @@ public:
 	void userPrompt();
 	vector< vector<string> > parse(string);
 	void print(vector <vector<string> >);
-	map<string,vector<string> > addToRepo(vector<vector<string> >,map<string,vector<string> >);
-	vector<string> getHeaders(vector< vector<string> >);
+	map<string,vector<string> > addToRepo(const vector<vector<string> >& vect,map<string,vector<string> >& repo);
+	vector<string> getHeaders(const vector< vector<string> >& vect);
 	vector<vector<string> > removeHeaders(vector<vector<string> >);
 };
 
