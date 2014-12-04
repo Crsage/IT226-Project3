@@ -21,7 +21,7 @@ public:
 	vector<string> getStudentAt(int index, const vector< vector<string> > &vect);
 	int getStudentIDIndex(const vector< vector<string> > &vect);
 	void removeHeaders(vector<vector<string> > &vect);
-	multimap<string,vector<string> > spliceRepoBySemester(multimap<string,vector<string> > &semesterRepo, const multimap<string,vector<string> > &repo);
-	multimap<string,vector<string> > spliceRepoByYear(multimap<string,vector<string> > &yearRepo, const multimap<string,vector<string> > &repo);
+	multimap<string,vector<string> > spliceRepoBySemester(multimap<string,vector<string> > &semesterRepo, const multimap<string,vector<string> > &repo, const string &semester);
+	multimap<string,vector<string> > spliceRepoByYear(multimap<string,vector<string> > &yearRepo, const multimap<string,vector<string> > &repo, const string &year);
 };
 #endif /* CSVPARSER_H_ */

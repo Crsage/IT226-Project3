@@ -108,14 +108,28 @@ int CSVParser::getStudentIDIndex(const vector< vector<string> > &vect)
 	}
 }
 
-multimap<string,vector<string> > spliceRepoBySemester(multimap<string,vector<string> > &semesterRepo, const multimap<string,vector<string> > &repo, const string &semester)
+multimap<string,vector<string> > spliceRepoBySemester(multimap<string,vector<string> > &semesterRepo, const multimap<string,vector<string> > &repo,  const string &semester)
 {
-	
+	/*multimap<string, vector<string> > semRepo;
+	for(std::multimap<string,int>::iterator it = repo.begin(); it != repo.end(); ++it)
+	{
+		vector<string> student = (*it).second;							//Broken
+		semRepo.insert(pair<string,vector<string> >(semester, student ));
+	}
+	return semRepo;*/
+	return repo;
 }
 
 multimap<string,vector<string> > spliceRepoByYear(multimap<string,vector<string> > &yearRepo, const multimap<string,vector<string> > &repo, const string &year)
 {
-
+	/*multimap<string, vector<string> > yeRepo;
+	for(std::multimap<string,int>::iterator it = repo.begin(); it != repo.end(); ++it)
+	{	
+		vector<string> student = (*it).second;							//Broken
+		yeRepo.insert(pair<string,vector<string> >(year, student));
+	}
+	return yeRepo;*/
+	return repo;
 }
 
 void CSVParser::print(vector< vector<string> > retVect)
